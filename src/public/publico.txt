@@ -1,0 +1,3 @@
+Es para estar almacenando archivos publicos
+y estaticos, como podrian ser css, imagenes, fuentes u otrs
+que el navegador puede acceder libremente.

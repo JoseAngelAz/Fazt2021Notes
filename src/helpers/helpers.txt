@@ -1,0 +1,3 @@
+Es para colocar funciones que desde la vista hagan algo.
+Ej: Handlebars no tiene alguna especie de condicional o bucle
+switch, se hace atravez de helpers, codigo adicional para las vistas.

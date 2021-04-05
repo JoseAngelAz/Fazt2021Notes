@@ -1,0 +1,2 @@
+Esta carpeta contendra los archivos que manejaran las configuracines de la aplicacion.
+Configurar algunos modulos.

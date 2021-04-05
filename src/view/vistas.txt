@@ -1,0 +1,3 @@
+Es para guardar los archivos del motor de plantillas
+Handlebar o los archivos html que vamos a estar enviando
+al navegador, al cliente.

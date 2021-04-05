@@ -1,0 +1,2 @@
+Es para almacenar los modelos de datos,osea
+los esquemas que usaremos en la db mongodb
