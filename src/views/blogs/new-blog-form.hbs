@@ -1,0 +1,27 @@
+<section class="col-6">
+    <div class="card text-black">
+        <form action="/blog/add" method="POST" enctype="multipart/form-data">
+            <div class="card-header">
+                <div class="form-group">
+                    <input type="text" class="form-control col-10" name="title_blog" placeholder="Titulo del Blog" autofocus>
+                </div>
+            </div>
+            <div class="card-body">              
+                    <div class="form-group">
+                        <h4 class="text-uppercase text-center col-12">Imagen de ejemplo</h4>
+                        <img class="img-fluid border border-primary center"
+                            src="https://nodejs.org/static/images/logo-hexagon-card.png" alt="imagen">
+                    </div>
+                <div class="form-group">
+                    <input class="col-12 form-control border border-primary" placeholder="url de la imagen" type="file" name="img_blog">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="content_blog" placeholder="Contenido del blog, escriba aqui su texto."></textarea>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-success btn-block">GUARDAR BLOG</button>
+            </div>
+        </form>
+    </div>
+</section>

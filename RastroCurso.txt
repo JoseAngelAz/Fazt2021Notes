@@ -1,1 +1,3 @@
-Me quede en el cap 5 voy hacia el 6
+Me quede en el cap 11(terminado) voy hacia el 12
+a considerar ocupar metodo .lean() luego del find() para
+mongoose

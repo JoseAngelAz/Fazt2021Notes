@@ -1,6 +1,11 @@
 const path = require('path');
 //retorna un obj y se guarda en una const con nombre app
 const express = require('express');
+//handelbars
+const handelbars = require('handlebars');
+const exphbs = require('express-handlebars');
+//morgan para ver peticiones
+const morgan = require('morgan');
 
 //INICIALIZACIONES
 //app es su aplicacion o su servidor en si
@@ -25,12 +30,20 @@ const app = express();
 //a una variable de entorno, significa si nuestro entorno o
 //sistema tiene una variable llamada PORT, que la use.
 //sino pues que use otro puerto, el que decida en este parametro.
-app.set('port',process.env.PORT||4000);
+app.set('port',process.env.PORT||4001);
 
 //establecemos donde esta la carpeta de las vistas ya que no
 //esta el la raiz del proyecto para que la alcance node
 //usamos el modulo path para unir las rutas
 app.set('views', path.join(__dirname,'views'));
+app.engine('.hbs', exphbs({
+  defaultLayout:'main',
+  layoutsDir: path.join( app.get('views'),'layouts'),
+  partialsDir:path.join( app.get('views'),'partials'),
+  extname:'.hbs',
+  handlebars:handelbars
+}));
+app.set('view engine','.hbs');
 
 //MIDLEWARES
 /*Funciones que se van ejecutando a medida que van llegando
@@ -41,7 +54,8 @@ app.set('views', path.join(__dirname,'views'));
  */
 //soportar json en formularios
 app.use(express.urlencoded({extended:false}));
-
+//morgan
+app.use(morgan('dev'));
 
 //VARIABLES GLOBALES
 /*Hace referencia a las variables gloales, es decir, aqui
@@ -55,9 +69,9 @@ app.use(express.urlencoded({extended:false}));
 /*contendra las rutas o URL de la apicacion pero estas
   las vamos a importar ya que tendran su propio archivo.
 */
-app.get('/',(req,res)=>{
-    res.send('Hola Mundo');
-});
+app.use(require('./routes/index.routes'));
+app.use(require('./routes/notes.routes'));
+app.use(require('./routes/blog.routes'));
 
 
 //ARCHIVOS ESTATICOS
