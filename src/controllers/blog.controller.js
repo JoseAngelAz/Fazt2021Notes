@@ -7,6 +7,7 @@ blogCtrl.RenderBlogForm = (req,res)=>{
 }
 //guardar blog en la db
 blogCtrl.NewBlog = async (req,res)=>{
+    console.log(req.file)
     const {title_blog, content_blog, img_blog} = req.body;
     const newBlog = new Blog({title_blog, content_blog,img_blog});
     await newBlog.save();

@@ -6,6 +6,11 @@ const handelbars = require('handlebars');
 const exphbs = require('express-handlebars');
 //morgan para ver peticiones
 const morgan = require('morgan');
+//multer
+const multer = require('multer');
+
+
+
 
 //INICIALIZACIONES
 //app es su aplicacion o su servidor en si
@@ -57,6 +62,27 @@ app.use(express.urlencoded({extended:false}));
 //morgan
 app.use(morgan('dev'));
 
+//config de MULTER, hay que pasarlo a multer
+const storage = multer.diskStorage({
+  destination:path.join(__dirname,'public/uploads'),
+  filename: (req,file,cb)=>{
+    cb(null, file.originalname);
+  }
+});
+
+app.use(multer({
+  storage,
+  dest: path.join(__dirname,'public/uploads'),
+  limits:{fileSize:2000000},
+  fileFilter:(req,file,cb)=>{
+    const filetypes = /jpeg|jpg|png|gif/;
+    const mimetype = filetypes.test(file.mimetype);
+    const extname = filetypes.test(path.extname(file.originalname));
+    if (mimetype && extname) {
+      return cb(null, true);
+    }cb("Error: Archivo debe ser una imagen");
+  }
+}).single('img'));
 //VARIABLES GLOBALES
 /*Hace referencia a las variables gloales, es decir, aqui
   podemos crear una variable que podemos acceder en todo
