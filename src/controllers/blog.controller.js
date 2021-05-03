@@ -31,7 +31,9 @@ blogCtrl.UpdateBlog = (req,res)=>{
     res.send(`<h2 class='text-warning'>Este es un solo Blog para ser Actualizado despues del form</h2>`)
 }
 //Eliminar blog
-blogCtrl.DeleteBlog = (req,res)=>{
-    res.send(`<h2 class='text-warning'>BLog eliminado</h2>`)
+blogCtrl.DeleteBlog = async(req,res)=>{
+    console.log('El ID del blog es: ',req.params.id)
+    await Blog.findByIdAndDelete(req.params.id)
+    res.redirect('/blogs')
 }
 module.exports = blogCtrl;

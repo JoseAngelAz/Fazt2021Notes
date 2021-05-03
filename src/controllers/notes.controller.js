@@ -26,7 +26,9 @@ notesCtrl.updateNote = (req,res)=>{
     res.send(`<h2 class='text-warning'>Nota actualizada</h2>`)
 }
 //borrar notas
-notesCtrl.deleteNote = (req,res)=>{
-    res.send(`<h2 class='text-warning'>Borrando Nota</h2>`)
+notesCtrl.deleteNote = async(req,res)=>{
+    console.log('El ID es: ',req.params.id)
+    await Note.findByIdAndDelete(req.params.id)
+    res.redirect('/notes')
 }
 module.exports = notesCtrl;

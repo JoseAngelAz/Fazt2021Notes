@@ -1,25 +1,37 @@
 <div class="row border border-warning">
-<!--CARTA-->    
-<div class="col-9 border border-primary">
-{{#each blogs}}
-    <div class="card">
-        <div class="card-header">{{title_blog}}</div>
-        <div class="card-body">
-            <div class="col-12">
-            <img class="img-fluid border border-success img-blog mb-3" src="uploads/167102071_3390767434357482_5876993520648323065_n.jpg" alt="imagen de blog">
-            <a class="btn btn-success" href="#">leer el blog</a>
+    <!--CARTA-->
+    <div class="col-9 border border-primary">
+        {{#each blogs}}
+        <div class="card">
+            <div class="card-header">{{title_blog}}</div>
+            <div class="card-body">
+                <div class="col-12">
+                    <img class="img-fluid border border-success img-blog mb-3"
+                        src="uploads/167102071_3390767434357482_5876993520648323065_n.jpg" alt="imagen de blog">
+                    <form action="/blog/delete/{{_id}}?_method=DELETE" method="POST">
+                    <a class="btn btn-success" href="#">leer el blog</a>
+                    <!--input oculto con valor delete-->
+                    <input type="hidden" value="DELETE">
+                    <button type="submit" class="btn btn-danger">DELETE</button>
+                </form>
+                </div>
+                <p class="text-truncate co">
+                    {{content_blog}}
+                </p>
+                
             </div>
-            <p class="text-wrap">
-            {{content_blog}}
-            </p>
-            <p class="text-wrap text-truncate content-blog">{{>lorem20}}</p>
+            <div class="card-footer">
+                <form action="/blog/delete/{{_id}}?_method=DELETE" method="POST">
+                    <!--input oculto con valor delete-->
+                    <input type="hidden" value="DELETE">
+                    <button type="submit" class="btn btn-danger btn-block btn-sm">DELETE</button>
+                </form>
             </div>
-        <div class="card-footer">footer</div>
+        </div>
+        {{/each}}
     </div>
-{{/each}}
-</div>
-<!--ASIDE-->
-<div class="col-3 border border-danger">
-    {{>elemtoaside}}
-</div>
+    <!--ASIDE-->
+    <div class="col-3 border border-danger">
+        {{>elemtoaside}}
+    </div>
 </div>

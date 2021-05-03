@@ -8,7 +8,8 @@ const exphbs = require('express-handlebars');
 const morgan = require('morgan');
 //multer
 const multer = require('multer');
-
+//sobreescribir metodos en formularios
+const MethodOverride = require('method-override');
 
 
 
@@ -61,7 +62,8 @@ app.set('view engine','.hbs');
 app.use(express.urlencoded({extended:false}));
 //morgan
 app.use(morgan('dev'));
-
+//methodOverride
+app.use(MethodOverride('_method'))
 //config de MULTER, hay que pasarlo a multer
 const storage = multer.diskStorage({
   destination:path.join(__dirname,'public/uploads'),
