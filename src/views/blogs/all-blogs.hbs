@@ -1,19 +1,24 @@
-<div class="row">
-    {{#each blogs}}
-    <pre>{{blogs}}</pre>
-    <div class="card bg-primary">
-        <div class="card-header">
-            <h3>{{title_blog}}</h3>
-        </div>
+<div class="row border border-warning">
+<!--CARTA-->    
+<div class="col-9 border border-primary">
+{{#each blogs}}
+    <div class="card">
+        <div class="card-header">{{title_blog}}</div>
         <div class="card-body">
-            <img src="{{img_blog}}" alt="imagen">
-            <p class="text-white">{{content_blog}}</p>
-        </div>
-        <div class="card-footer">
-            <form action="/blog/delete/{{_id}}" method="POST">
-                <button class="btn btn-danger btn-block btn-sm">DELETE</button>
-            </form>
-        </div>
+            <div class="col-12">
+            <img class="img-fluid border border-success img-blog mb-3" src="uploads/167102071_3390767434357482_5876993520648323065_n.jpg" alt="imagen de blog">
+            </div>
+            <p class="text-wrap">
+            {{content_blog}}
+            </p>
+            <p class="text-wrap">{{>lorem20}}</p>
+            </div>
+        <div class="card-footer">footer</div>
     </div>
-    {{/each}}
+{{/each}}
+</div>
+<!--ASIDE-->
+<div class="col-3 border border-danger">
+    {{>elemtoaside}}
+</div>
 </div>
