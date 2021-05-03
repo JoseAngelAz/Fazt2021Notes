@@ -6,3 +6,7 @@
     height: auto;
     width: 5rem;
 }
+p > .content-blog{
+    height: 4rem;
+    width: 8rem;
+}
