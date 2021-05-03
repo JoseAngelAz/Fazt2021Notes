@@ -1,12 +1,12 @@
 {{#each blogs}}
 <div class="card bg-warning text-black shadow-lg">
-    <div class="card-header ">titulo</div>
+    <div class="card-header ">{{title_blog}}</div>
     <div class="card-body">
         <div class="col-12">
             <img class="img-fluid img-thumbnail img-thum rounded border rounded-circle border-danger" src="uploads/167102071_3390767434357482_5876993520648323065_n.jpg" alt="noticia">
         </div>
-            <p class="text-truncate">{{title_blog}}</p>
+            <p class="text-truncate">{{content_blog}}</p>
         </div>
-    <div class="card-footer">footer de la carta</div>
+    <div class="card-footer"><a class="btn btn-success" href="#">leer el blog</a></div>
 </div>
 {{/each}}
