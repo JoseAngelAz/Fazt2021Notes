@@ -1,3 +1,3 @@
-Me quede en el cap 12(terminado) voy hacia el 13
+Me quede en el cap 12(falta 6:20) voy hacia el 13
 a considerar ocupar metodo .lean() luego del find() para
 mongoose

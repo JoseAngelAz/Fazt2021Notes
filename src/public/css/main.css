@@ -1,5 +1,10 @@
 *{
     font-family: 'Noto Serif', serif;
+    font-family: 'Playfair Display', serif;    
+}
+body{
+    background-color: #FBDA61;
+    background-image: linear-gradient(45deg, #f7ecc5 0%, #f1d093 100%);
+    
 
-    font-family: 'Playfair Display', serif;
 }

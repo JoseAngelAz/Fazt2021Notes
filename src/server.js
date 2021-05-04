@@ -2,7 +2,7 @@ const path = require('path');
 //retorna un obj y se guarda en una const con nombre app
 const express = require('express');
 //handelbars
-const handelbars = require('handlebars');
+const Handelbars = require('handlebars');
 const exphbs = require('express-handlebars');
 //morgan para ver peticiones
 const morgan = require('morgan');
@@ -11,7 +11,12 @@ const multer = require('multer');
 //sobreescribir metodos en formularios
 const MethodOverride = require('method-override');
 
-
+//prototypeaccess
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+const hbs = exphbs.create({
+  defaultLayout:'main',
+  extname:'hbs',
+});
 
 //INICIALIZACIONES
 //app es su aplicacion o su servidor en si
@@ -47,7 +52,7 @@ app.engine('.hbs', exphbs({
   layoutsDir: path.join( app.get('views'),'layouts'),
   partialsDir:path.join( app.get('views'),'partials'),
   extname:'.hbs',
-  handlebars:handelbars
+  handlebars: allowInsecurePrototypeAccess(Handelbars)
 }));
 app.set('view engine','.hbs');
 
